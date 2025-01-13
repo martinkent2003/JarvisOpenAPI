@@ -13,6 +13,10 @@ origins = [
     "*"
 ]
 
+@app.get("/")
+def root_route():
+    return{"Hello": "Hello World form the fastAPI"}
+
 app.include_router(AssistantAudioController, tags=['assistant'])
 
 app.add_middleware(
