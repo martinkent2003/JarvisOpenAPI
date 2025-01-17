@@ -4,8 +4,9 @@ from fastapi.responses import FileResponse
 
 controller = APIRouter(prefix='/api/voice-assistant')
 
+
 @controller.post('/audio-message', status_code=200)
-async def handle_receive_audio_data(file:UploadFile):
+async def handle_receive_audio_data(file: UploadFile):
     print('file_data >> ', file)
     file_data = await file.read()
     generated_ai_audio_file_path = await handle_audio_from_user(file_data)

@@ -13,9 +13,11 @@ origins = [
     "*"
 ]
 
-@app.get("/")
+
+@app.get("/", status_code=200)
 def root_route():
-    return{"Hello": "Hello World form the fastAPI"}
+    return {"Hello": "Hello World form the fastAPI"}
+
 
 app.include_router(AssistantAudioController, tags=['assistant'])
 
